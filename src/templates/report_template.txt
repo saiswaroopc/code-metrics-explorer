@@ -1,0 +1,24 @@
+Code Metrics
+
+Lines of Code Counter Report
+============================
+{% for file_path, metrics in data.items() %}
+File: {{ file_path }}
+    Code Lines: {{ metrics[Metric.CODE_LINES.name] }}
+    Single Line Comments: {{ metrics[Metric.SINGLE_LINE_COMMENTS.name] }}
+    Multi-Line Comments: {{ metrics[Metric.MULTI_LINE_COMMENTS.name] }}
+    Code and Comments: {{ metrics[Metric.CODE_LINE_COMMENTS.name] }}
+    Blank Lines: {{ metrics[Metric.BLANK_LINES.name] }}
+    Total: {{ metrics[Metric.TOTAL.name] }}
+{% else %}
+No files were analyzed or no analysis data is available.
+{% endfor %}
+
+Summary of Totals Across All Files
+===================================
+    Total Code Lines: {{ summary_totals[Metric.CODE_LINES.name] }}
+    Total Single Line Comments: {{ summary_totals[Metric.SINGLE_LINE_COMMENTS.name] }}
+    Total Multi-Line Comments: {{ summary_totals[Metric.MULTI_LINE_COMMENTS.name] }}
+    Total Code and Comments: {{ summary_totals[Metric.CODE_LINE_COMMENTS.name] }}
+    Total Blank Lines: {{ summary_totals[Metric.BLANK_LINES.name] }}
+    Grand Total Lines: {{ summary_totals[Metric.TOTAL.name] }}
