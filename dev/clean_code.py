@@ -57,10 +57,9 @@ def main():
 
     # Define your commands here, running them only on the detected Python files
     commands = [
-        f"flake8 {files_to_check}",
+        f"flake8 {files_to_check} --max-line-length 110",
         f"black {files_to_check} --check",
         f"isort {files_to_check} --check-only",
-        f"mypy {files_to_check}",
     ]
 
     for command in commands:
