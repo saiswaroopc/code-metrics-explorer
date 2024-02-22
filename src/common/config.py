@@ -18,7 +18,7 @@ class Config:
         """Retrieves the report template path from environment variables."""
         return os.getenv(
             "REPORT_TEMPLATE_PATH",
-            "src/templates/report_template.txt",
+            "src/templates/report_template.jinja2",
             # Assuming the template path is fixed and part of project structure
         )
 
