@@ -2,8 +2,7 @@ import argparse
 import logging
 import os
 
-from dotenv import load_dotenv
-
+from src.common.config import Config
 from src.common.file_analyzer import analyze_file
 from src.common.logging import setup_logging
 from src.common.metrics import Metric
@@ -11,16 +10,11 @@ from src.common.report_generation import generate_report
 from src.handlers.directory_handler import DirectoryHandler
 from src.handlers.git_handler import GitHandler
 
-# Load environment variables
-load_dotenv()
+# Get environment variables
+config = Config()
 
-# Access environment variables
-LOG_LEVEL = os.getenv("LOG_LEVEL", default="INFO")
-REPORT_TEMPLATE_PATH = os.getenv(
-    "REPORT_TEMPLATE_PATH",
-    default="src/templates/report_template.txt",
-    # Assuming the template path is fixed and part of your project structure
-)
+LOG_LEVEL = config.log_level
+REPORT_TEMPLATE_PATH = config.report_template_path
 
 
 def _calculate_summary_totals(results):
