@@ -8,7 +8,14 @@ class AnalysisResult:
     """Encapsulates the results of a code analysis."""
 
     def __init__(self):
-        self.metrics: Dict[Metric, int] = {metric: 0 for metric in Metric}
+        self.metrics: Dict[Metric, int] = {
+            Metric.CODE_LINES: 0,
+            Metric.SINGLE_LINE_COMMENTS: 0,
+            Metric.MULTI_LINE_COMMENTS: 0,
+            Metric.CODE_LINE_COMMENTS: 0,
+            Metric.BLANK_LINES: 0,
+            Metric.TOTAL: 0,
+        }
 
     def add_metric(self, metric_name: Metric, value: int) -> None:
         """Safely adds to an existing count of a measure for sum."""
