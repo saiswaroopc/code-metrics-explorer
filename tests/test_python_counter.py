@@ -50,10 +50,10 @@ def test_python_counter_mixed_content(python_file):
 def foo():
     print("Hello")  # Inline comment
     '''
-	Multiline
-	string
-	content
-	'''
+    Multiline
+    string
+    content
+    '''
 # Another comment
 """
     file_path = python_file(content)
