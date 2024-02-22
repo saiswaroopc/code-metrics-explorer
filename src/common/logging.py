@@ -1,14 +1,12 @@
 import logging
-import os
 
-from dotenv import load_dotenv
+from src.common.config import Config
 
-# Load environment variables
-load_dotenv()
+# Get environment variables
+config = Config()
 
-# Access environment variables
-LOG_LEVEL = os.getenv("LOG_LEVEL", default="INFO")
-APP = os.getenv("APP", default="LinesOfCodeCounter")
+LOG_LEVEL = config.log_level
+APP = config.app_name
 
 
 class ContextualLogger(logging.LoggerAdapter):
